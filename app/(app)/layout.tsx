@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Sidebar from "@/components/layout/Sidebar";
 import Topbar from "@/components/layout/Topbar";
+import { AppProvider } from "./AppContext";
 
 export default function AppLayout({
   children,
@@ -19,7 +20,11 @@ export default function AppLayout({
       {/* Conteúdo principal */}
       <div className="flex flex-1 flex-col lg:ml-64">
         <Topbar onMenuClick={() => setSidebarOpen(true)} />
-        <main className="flex-1 p-4 md:p-6 bg-gray-900">{children}</main>
+        <main className="flex-1 p-4 md:p-6 bg-gray-900">
+          <AppProvider>
+            {children}
+          </AppProvider>
+        </main>
       </div>
     </div>
   );

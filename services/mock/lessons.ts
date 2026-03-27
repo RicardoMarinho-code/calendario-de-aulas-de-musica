@@ -28,7 +28,7 @@ export const mockLessons: Lesson[] = [
     instrument: "violao",
     date: week[0],
     startTime: "08:00",
-    endTime: "09:00",
+    endTime: "08:50",
     status: "realizada",
   },
   {
@@ -38,7 +38,7 @@ export const mockLessons: Lesson[] = [
     instrument: "piano",
     date: week[0],
     startTime: "09:00",
-    endTime: "10:00",
+    endTime: "09:50",
     status: "cancelada",
     notes: "A aluna ficou doente",
   },
@@ -49,7 +49,7 @@ export const mockLessons: Lesson[] = [
     instrument: "guitarra",
     date: week[0],
     startTime: "14:00",
-    endTime: "15:00",
+    endTime: "14:50",
     status: "realizada",
   },
   // Terça
@@ -60,7 +60,7 @@ export const mockLessons: Lesson[] = [
     instrument: "bateria",
     date: week[1],
     startTime: "10:00",
-    endTime: "11:00",
+    endTime: "10:50",
     status: "agendada",
   },
   {
@@ -70,7 +70,7 @@ export const mockLessons: Lesson[] = [
     instrument: "canto",
     date: week[1],
     startTime: "13:00", // original era 13h
-    endTime: "14:00",
+    endTime: "13:50",
     status: "remarcada",
     notes: "Remarcada para 15h a pedido do professor",
   },
@@ -81,7 +81,7 @@ export const mockLessons: Lesson[] = [
     instrument: "canto",
     date: week[1],
     startTime: "15:00",
-    endTime: "16:00",
+    endTime: "15:50",
     status: "agendada",
   },
   // Quarta
@@ -92,7 +92,7 @@ export const mockLessons: Lesson[] = [
     instrument: "violao",
     date: week[2],
     startTime: "08:00",
-    endTime: "09:00",
+    endTime: "08:50",
     status: "agendada",
   },
   // Quinta
@@ -103,7 +103,7 @@ export const mockLessons: Lesson[] = [
     instrument: "piano",
     date: week[3],
     startTime: "09:00",
-    endTime: "10:00",
+    endTime: "09:50",
     status: "agendada",
   },
   // Hoje / Sexta (vamos colocar algumas para sexta e sabado)
@@ -114,7 +114,7 @@ export const mockLessons: Lesson[] = [
     instrument: "bateria",
     date: week[4],
     startTime: "10:00",
-    endTime: "11:00",
+    endTime: "10:50",
     status: "agendada",
   },
   {
@@ -124,7 +124,7 @@ export const mockLessons: Lesson[] = [
     instrument: "violao",
     date: week[4],
     startTime: "14:00",
-    endTime: "15:00",
+    endTime: "14:50",
     status: "agendada",
   },
   // Sábado
@@ -135,7 +135,7 @@ export const mockLessons: Lesson[] = [
     instrument: "canto",
     date: week[5],
     startTime: "09:00",
-    endTime: "10:00",
+    endTime: "09:50",
     status: "agendada",
   },
 ];
