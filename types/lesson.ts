@@ -10,7 +10,8 @@ export type Instrument =
   | "canto"
   | "violino"
   | "saxofone"
-  | "flauta";
+  | "flauta"
+  | "cavaquinho";
 
 export interface Lesson {
   id: string;

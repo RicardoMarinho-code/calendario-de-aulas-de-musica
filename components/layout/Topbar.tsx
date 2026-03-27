@@ -1,10 +1,38 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+
 interface TopbarProps {
   onMenuClick: () => void;
 }
 
+const PAGE_META: Record<string, { title: string; subtitle: string }> = {
+  "/dashboard": {
+    title: "Visão Geral",
+    subtitle: "Confira o resumo do seu estúdio hoje",
+  },
+  "/agenda": {
+    title: "Agenda de Aulas",
+    subtitle: "Navegue pela semana e gerencie seus horários",
+  },
+  "/alunos": {
+    title: "Meus Alunos",
+    subtitle: "Cadastre e acompanhe seus estudantes",
+  },
+  "/financeiro": {
+    title: "Financeiro",
+    subtitle: "Registre pagamentos e acompanhe seu faturamento",
+  },
+};
+
 export default function Topbar({ onMenuClick }: TopbarProps) {
+  const pathname = usePathname();
+
+  const meta = PAGE_META[pathname] ?? {
+    title: "Agenda Pro Music",
+    subtitle: "Bem-vindo ao seu studio",
+  };
+
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-gray-700 bg-gray-800/80 backdrop-blur-md px-4 md:px-6 shadow-sm">
       {/* Botão menu hamburger - só no mobile */}
@@ -18,33 +46,21 @@ export default function Topbar({ onMenuClick }: TopbarProps) {
         </svg>
       </button>
 
-      {/* Título da página */}
-      <div className="flex-1">
-        <h1 className="text-lg font-semibold text-gray-100">Agenda de Aulas</h1>
+      {/* Título e subtítulo dinâmicos */}
+      <div className="flex-1 min-w-0">
+        <p className="text-base font-bold text-white leading-tight truncate">{meta.title}</p>
+        <p className="text-xs text-gray-400 font-medium truncate hidden sm:block">{meta.subtitle}</p>
       </div>
 
       {/* Ações do topbar */}
-      <div className="flex items-center gap-2">
-        {/* Botão de notificações */}
-        <button
-          className="relative inline-flex items-center justify-center rounded-lg p-2 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors"
-          aria-label="Notificações"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-          </svg>
-          <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-md">
-            3
-          </span>
-        </button>
-
+      <div className="flex items-center gap-2 shrink-0">
         {/* Avatar do usuário */}
-        <button
-          className="inline-flex items-center justify-center rounded-full w-9 h-9 bg-amber-500/20 text-amber-500 font-semibold text-sm hover:bg-amber-500/30 transition-colors border border-amber-500/20"
-          aria-label="Perfil"
-        >
-          E
-        </button>
+        <div className="flex items-center gap-2.5 bg-gray-700/50 hover:bg-gray-700 transition-colors rounded-xl px-3 py-1.5 cursor-pointer border border-gray-600/50">
+          <div className="w-7 h-7 rounded-full bg-amber-500 flex items-center justify-center text-xs font-black text-gray-900 shrink-0">
+            B
+          </div>
+          <span className="text-sm font-semibold text-gray-200 hidden sm:block">Prof. Bruno</span>
+        </div>
       </div>
     </header>
   );
